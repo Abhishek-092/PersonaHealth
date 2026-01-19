@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PersonaHealth | Dashboard</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #2A2926, #1C1B19);
+      font-family: 'Inter', sans-serif;
+      color: #EAE7E2;
+      padding: 24px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 28px;
+    }
+
+    .title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+    }
+
+    .date {
+      font-size: 0.85rem;
+      color: #B7B3AD;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: rgba(36, 35, 33, 0.6);
+      backdrop-filter: blur(16px);
+      border-radius: 22px;
+      padding: 22px;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow:
+        0 16px 32px rgba(0,0,0,0.45),
+        inset 0 1px 0 rgba(255,255,255,0.05);
+    }
+
+    .card h3 {
+      font-size: 0.8rem;
+      letter-spacing: 0.4px;
+      color: #B7B3AD;
+      margin-bottom: 10px;
+    }
+
+    .value {
+      font-size: 1.6rem;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .sub {
+      font-size: 0.8rem;
+      color: #9E9B96;
+    }
+
+    .highlight {
+      color: #A37B5E;
+    }
+
+    .wide {
+      grid-column: span 2;
+    }
+
+    @media (max-width: 600px) {
+      .wide {
+        grid-column: span 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="title">Your Day at a Glance</div>
+    <div class="date" id="today"></div>
+  </div>
+
+  <div class="grid">
+
+    <!-- Lifestyle Score -->
+    <div class="card">
+      <h3>LIFESTYLE SCORE</h3>
+      <div class="value highlight">72 / 100</div>
+      <div class="sub">Improving steadily</div>
+    </div>
+
+    <!-- Sleep -->
+    <div class="card">
+      <h3>SLEEP</h3>
+      <div class="value">6h 20m</div>
+      <div class="sub">Slightly below optimal</div>
+    </div>
+
+    <!-- Activity -->
+    <div class="card">
+      <h3>ACTIVITY</h3>
+      <div class="value">5,432</div>
+      <div class="sub">Steps today</div>
+    </div>
+
+    <!-- Stress -->
+    <div class="card">
+      <h3>STRESS</h3>
+      <div class="value">Moderate</div>
+      <div class="sub">Based on recent patterns</div>
+    </div>
+
+    <!-- Nutrition -->
+    <div class="card">
+      <h3>NUTRITION</h3>
+      <div class="value">Balanced</div>
+      <div class="sub">1 supplement flagged</div>
+    </div>
+
+    <!-- Body -->
+    <div class="card">
+      <h3>BODY STATUS</h3>
+      <div class="value">Stable</div>
+      <div class="sub">Weekly progress maintained</div>
+    </div>
+
+    <!-- Insights -->
+    <div class="card wide">
+      <h3>INSIGHTS</h3>
+      <div class="value">You’re on track</div>
+      <div class="sub">
+        If current habits continue, physical and mental wellbeing
+        are expected to improve over the next few weeks.
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const today = new Date();
+    document.getElementById("today").innerText =
+      today.toLocaleDateString(undefined, {
+        weekday: "long",
+        month: "long",
+        day: "numeric"
+      });
+  </script>
+
+</body>
+</html>

@@ -28,7 +28,7 @@
 
     .glass {
       width: 100%;
-      max-width: 520px;
+      max-width: 560px;
       background: rgba(36, 35, 33, 0.6);
       backdrop-filter: blur(18px);
       border-radius: 26px;
@@ -56,9 +56,18 @@
       margin-bottom: 18px;
     }
 
+    .row {
+      display: flex;
+      gap: 14px;
+    }
+
+    .row .field {
+      flex: 1;
+    }
+
     label {
       display: block;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       letter-spacing: 0.4px;
       color: #9E9B96;
       margin-bottom: 6px;
@@ -84,7 +93,6 @@
       background: rgba(255,255,255,0.12);
     }
 
-    /* CUSTOM DROPDOWN */
     .dropdown {
       position: relative;
     }
@@ -111,7 +119,6 @@
     .dropdown-menu div {
       padding: 10px 14px;
       font-size: 0.85rem;
-      color: #EAE7E2;
       cursor: pointer;
     }
 
@@ -134,70 +141,91 @@
         0 10px 20px rgba(0,0,0,0.4),
         inset 0 1px 0 rgba(255,255,255,0.25);
     }
-
-    .note {
-      margin-top: 16px;
-      font-size: 0.7rem;
-      text-align: center;
-      color: #8E8B86;
-    }
   </style>
 </head>
 <body>
 
 <div class="glass">
-  <h1>Let’s personalise you experience</h1>
+  <h1>Let’s personalise this</h1>
   <div class="subtitle">
-    This helps PersonaHealth adapt to your lifestyle and health needs.
+    A few details help PersonaHealth adapt to your body, lifestyle, and goals.
   </div>
 
-  <div class="field">
-    <label>AGE</label>
-    <input type="number" placeholder="Your age" />
+  <div class="row">
+    <div class="field">
+      <label>AGE</label>
+      <input type="number" placeholder="Years" />
+    </div>
+    <div class="field">
+      <label>GENDER</label>
+      <input type="text" placeholder="Male / Female / Other" />
+    </div>
   </div>
 
-  <div class="field">
-    <label>GENDER</label>
-    <input type="text" placeholder="Male / Female / Other" />
+  <div class="row">
+    <div class="field">
+      <label>HEIGHT (cm)</label>
+      <input type="number" placeholder="e.g. 170" />
+    </div>
+    <div class="field">
+      <label>WEIGHT (kg)</label>
+      <input type="number" placeholder="e.g. 65" />
+    </div>
   </div>
 
-  <!-- DISABILITY DROPDOWN -->
   <div class="field dropdown">
-    <label>PHYSICAL DISABILITY / LIMITATION</label>
+    <label> DISABILITY (IF ANY) </label>
     <input class="dropdown-input" readonly placeholder="Select condition" onclick="toggleDropdown('disabilityMenu')" />
-
     <div class="dropdown-menu" id="disabilityMenu">
       <div onclick="selectOption(this)">None</div>
       <div onclick="selectOption(this)">Lower limb amputation</div>
       <div onclick="selectOption(this)">Upper limb amputation</div>
-      <div onclick="selectOption(this)">Mobility impairment</div>
       <div onclick="selectOption(this)">Wheelchair user</div>
       <div onclick="selectOption(this)">Partial paralysis</div>
-      <div onclick="selectOption(this)">Spinal cord injury</div>
       <div onclick="selectOption(this)">Visual impairment</div>
       <div onclick="selectOption(this)">Hearing impairment</div>
       <div onclick="selectOption(this)">Other</div>
     </div>
   </div>
 
-  <!-- CHRONIC CONDITION DROPDOWN -->
   <div class="field dropdown">
     <label>CHRONIC CONDITIONS / DISEASES</label>
     <input class="dropdown-input" readonly placeholder="Select condition" onclick="toggleDropdown('chronicMenu')" />
-
     <div class="dropdown-menu" id="chronicMenu">
       <div onclick="selectOption(this)">None</div>
       <div onclick="selectOption(this)">Asthma</div>
-      <div onclick="selectOption(this)">Diabetes Type 1</div>
-      <div onclick="selectOption(this)">Diabetes Type 2</div>
+      <div onclick="selectOption(this)">Diabetes</div>
       <div onclick="selectOption(this)">Hypertension</div>
       <div onclick="selectOption(this)">Heart disease</div>
       <div onclick="selectOption(this)">Thyroid disorder</div>
       <div onclick="selectOption(this)">PCOS / PCOD</div>
-      <div onclick="selectOption(this)">Arthritis</div>
       <div onclick="selectOption(this)">Depression</div>
       <div onclick="selectOption(this)">Anxiety disorder</div>
       <div onclick="selectOption(this)">Other</div>
+    </div>
+  </div>
+
+  <div class="field dropdown">
+    <label>PRIMARY GOAL</label>
+    <input class="dropdown-input" readonly placeholder="Select goal" onclick="toggleDropdown('goalMenu')" />
+    <div class="dropdown-menu" id="goalMenu">
+      <div onclick="selectOption(this)">Improve overall health</div>
+      <div onclick="selectOption(this)">Weight management</div>
+      <div onclick="selectOption(this)">Build strength</div>
+      <div onclick="selectOption(this)">Reduce stress</div>
+      <div onclick="selectOption(this)">Improve sleep</div>
+      <div onclick="selectOption(this)">Manage chronic condition</div>
+    </div>
+  </div>
+
+  <div class="field dropdown">
+    <label>ACTIVITY LEVEL</label>
+    <input class="dropdown-input" readonly placeholder="Select activity level" onclick="toggleDropdown('activityMenu')" />
+    <div class="dropdown-menu" id="activityMenu">
+      <div onclick="selectOption(this)">Sedentary</div>
+      <div onclick="selectOption(this)">Lightly active</div>
+      <div onclick="selectOption(this)">Moderately active</div>
+      <div onclick="selectOption(this)">Highly active</div>
     </div>
   </div>
 
@@ -207,10 +235,6 @@
   </div>
 
   <button class="button" onclick="goDashboard()">Continue</button>
-
-  <div class="note">
-    Your information stays on your device during this demo.
-  </div>
 </div>
 
 <script>
@@ -218,7 +242,6 @@
     document.querySelectorAll('.dropdown-menu').forEach(menu => {
       if (menu.id !== id) menu.style.display = 'none';
     });
-
     const menu = document.getElementById(id);
     menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
   }
@@ -231,8 +254,7 @@
 
   document.addEventListener('click', (e) => {
     if (!e.target.closest('.dropdown')) {
-      document.querySelectorAll('.dropdown-menu')
-        .forEach(menu => menu.style.display = 'none');
+      document.querySelectorAll('.dropdown-menu').forEach(menu => menu.style.display = 'none');
     }
   });
 
