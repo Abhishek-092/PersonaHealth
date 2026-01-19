@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PersonaHealth | Insights</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #2A2926, #1C1B19);
+      font-family: 'Inter', sans-serif;
+      color: #EAE7E2;
+      padding: 24px 24px 110px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      color: #B7B3AD;
+      margin-bottom: 28px;
+    }
+
+    .card {
+      background: rgba(36, 35, 33, 0.6);
+      backdrop-filter: blur(16px);
+      border-radius: 22px;
+      padding: 22px;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow:
+        0 16px 32px rgba(0,0,0,0.45),
+        inset 0 1px 0 rgba(255,255,255,0.05);
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      font-size: 0.75rem;
+      letter-spacing: 0.4px;
+      color: #B7B3AD;
+      margin-bottom: 12px;
+    }
+
+    .value {
+      font-size: 1.5rem;
+      margin-bottom: 6px;
+    }
+
+    .desc {
+      font-size: 0.85rem;
+      color: #9E9B96;
+      line-height: 1.5;
+    }
+
+    .highlight { color: #A37B5E; }
+
+    .divider {
+      height: 1px;
+      background: rgba(255,255,255,0.08);
+      margin: 14px 0;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 18px;
+      padding: 14px 22px;
+      background: rgba(36, 35, 33, 0.65);
+      backdrop-filter: blur(16px);
+      border-radius: 40px;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow:
+        0 14px 30px rgba(0,0,0,0.45),
+        inset 0 1px 0 rgba(255,255,255,0.05);
+    }
+
+    .nav-item {
+      font-size: 0.85rem;
+      color: #B7B3AD;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .nav-item.active {
+      color: #A37B5E;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Daily Insights</h1>
+  <div class="subtitle">
+    A clear picture of your day — and how to improve it
+  </div>
+
+  <!-- Summary -->
+  <div class="card">
+    <h3>TODAY’S SUMMARY</h3>
+    <div class="value highlight">You’re on track</div>
+    <div class="desc">
+      Most of your habits today supported both physical and mental wellbeing.
+    </div>
+  </div>
+
+  <!-- What Went Well -->
+  <div class="card">
+    <h3>WHAT WENT WELL</h3>
+    <div class="desc">
+      • Consistent movement throughout the day<br/>
+      • Balanced nutrient intake<br/>
+      • Stress remained within a manageable range
+    </div>
+  </div>
+
+  <!-- Needs Improvement -->
+  <div class="card">
+    <h3>NEEDS ATTENTION</h3>
+    <div class="desc">
+      • Sleep duration was slightly low<br/>
+      • Hydration reminders were missed twice
+    </div>
+  </div>
+
+  <!-- Prediction -->
+  <div class="card">
+    <h3>IF YOU CONTINUE THIS ROUTINE</h3>
+    <div class="desc">
+      Maintaining current habits is likely to improve energy levels,
+      focus, and recovery over the next few weeks.
+    </div>
+  </div>
+
+  <!-- Actionable Advice -->
+  <div class="card">
+    <h3>SIMPLE ADJUSTMENTS</h3>
+    <div class="desc">
+      • Sleep 30 minutes earlier tonight<br/>
+      • Drink one glass of water immediately after waking up
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="nav-item" onclick="go('dashboard.html')">Dashboard</div>
+    <div class="nav-item" onclick="go('reminders.html')">Reminders</div>
+    <div class="nav-item" onclick="go('nutrition.html')">Nutrition</div>
+    <div class="nav-item" onclick="go('sleep.html')">Sleep</div>
+    <div class="nav-item" onclick="go('activity.html')">Activity</div>
+    <div class="nav-item active">Insights</div>
+  </div>
+
+  <script>
+    function go(page) {
+      window.location.href = page;
+    }
+  </script>
+
+</body>
+</html>
