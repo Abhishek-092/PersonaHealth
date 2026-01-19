@@ -8,7 +8,6 @@
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Temporary internal styles (we will move to CSS later) -->
   <style>
     * {
       margin: 0;
@@ -35,55 +34,34 @@
     h1 {
       font-size: 3rem;
       font-weight: 700;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     p {
       font-size: 1.1rem;
       color: #cbd5f5;
-      margin-bottom: 30px;
-    }
-
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
+      margin-bottom: 36px;
     }
 
     button {
-      padding: 14px 28px;
-      border-radius: 12px;
+      padding: 14px 34px;
+      border-radius: 14px;
       border: none;
       cursor: pointer;
       font-size: 1rem;
       font-weight: 600;
+      background-color: #4f46e5;
+      color: white;
       transition: all 0.3s ease;
     }
 
-    .primary {
-      background-color: #4f46e5;
-      color: white;
-    }
-
-    .primary:hover {
+    button:hover {
       background-color: #6366f1;
       transform: translateY(-2px);
     }
 
-    .secondary {
-      background-color: transparent;
-      border: 2px solid #4f46e5;
-      color: #c7d2fe;
-    }
-
-    .secondary:hover {
-      background-color: #4f46e5;
-      color: white;
-      transform: translateY(-2px);
-    }
-
     .tag {
-      margin-top: 40px;
+      margin-top: 42px;
       font-size: 0.9rem;
       color: #94a3b8;
     }
@@ -97,10 +75,7 @@
       A unified, individual-first health & lifestyle companion
     </p>
 
-    <div class="buttons">
-      <button class="primary" onclick="startApp()">Get Started</button>
-      <button class="secondary" onclick="viewDemo()">View Demo</button>
-    </div>
+    <button onclick="startApp()">Get Started</button>
 
     <div class="tag">
       Built for inclusivity • Realistic lifestyle • Health beyond numbers
@@ -109,12 +84,7 @@
 
   <script>
     function startApp() {
-      // Next page (we will create this next)
       window.location.href = "pages/setup.html";
-    }
-
-    function viewDemo() {
-      alert("Demo walkthrough will be shown in the video submission.");
     }
   </script>
 
