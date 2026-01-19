@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PersonaHealth</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Temporary internal styles (we will move to CSS later) -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 700px;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #cbd5f5;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    button {
+      padding: 14px 28px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .primary {
+      background-color: #4f46e5;
+      color: white;
+    }
+
+    .primary:hover {
+      background-color: #6366f1;
+      transform: translateY(-2px);
+    }
+
+    .secondary {
+      background-color: transparent;
+      border: 2px solid #4f46e5;
+      color: #c7d2fe;
+    }
+
+    .secondary:hover {
+      background-color: #4f46e5;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .tag {
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>PersonaHealth</h1>
+    <p>
+      A unified, individual-first health & lifestyle companion
+    </p>
+
+    <div class="buttons">
+      <button class="primary" onclick="startApp()">Get Started</button>
+      <button class="secondary" onclick="viewDemo()">View Demo</button>
+    </div>
+
+    <div class="tag">
+      Built for inclusivity • Realistic lifestyle • Health beyond numbers
+    </div>
+  </div>
+
+  <script>
+    function startApp() {
+      // Next page (we will create this next)
+      window.location.href = "pages/setup.html";
+    }
+
+    function viewDemo() {
+      alert("Demo walkthrough will be shown in the video submission.");
+    }
+  </script>
+
+</body>
+</html>
