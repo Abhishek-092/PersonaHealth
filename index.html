@@ -5,80 +5,122 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PersonaHealth</title>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
 
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
     }
 
     body {
       height: 100vh;
-      background: linear-gradient(135deg, #0f172a, #1e293b);
-      color: #ffffff;
+      background: radial-gradient(
+        circle at top,
+        #2A2926,
+        #1C1B19
+      );
+      font-family: 'Inter', sans-serif;
+      color: #EAE7E2;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    .container {
+    /* Glass Card */
+    .glass {
+      background: rgba(36, 35, 33, 0.55);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-radius: 28px;
+      padding: 48px 42px;
+      max-width: 720px;
       text-align: center;
-      max-width: 700px;
-      padding: 20px;
+
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
     }
 
     h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 12px;
+      font-family: 'Playfair Display', serif;
+      font-size: 3.4rem;
+      font-weight: 500;
+      letter-spacing: 0.4px;
+      margin-bottom: 20px;
     }
 
-    p {
+    .subtitle {
       font-size: 1.1rem;
-      color: #cbd5f5;
-      margin-bottom: 36px;
+      line-height: 1.75;
+      color: #B7B3AD;
+      margin-bottom: 46px;
     }
 
     button {
-      padding: 14px 34px;
-      border-radius: 14px;
+      padding: 16px 46px;
+      border-radius: 40px;
       border: none;
       cursor: pointer;
       font-size: 1rem;
-      font-weight: 600;
-      background-color: #4f46e5;
-      color: white;
-      transition: all 0.3s ease;
+      font-weight: 500;
+
+      background: linear-gradient(
+        135deg,
+        #A37B5E,
+        #8F6A4F
+      );
+      color: #1C1B19;
+
+      box-shadow:
+        0 10px 20px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+
+      transition: all 0.25s ease;
     }
 
     button:hover {
-      background-color: #6366f1;
       transform: translateY(-2px);
+      box-shadow:
+        0 16px 28px rgba(0, 0, 0, 0.55),
+        inset 0 1px 0 rgba(255, 255, 255, 0.35);
     }
 
     .tag {
-      margin-top: 42px;
-      font-size: 0.9rem;
-      color: #94a3b8;
+      margin-top: 50px;
+      font-size: 0.8rem;
+      letter-spacing: 0.5px;
+      color: #8E8B86;
+    }
+
+    @media (max-width: 600px) {
+      .glass {
+        padding: 36px 26px;
+      }
+
+      h1 {
+        font-size: 2.6rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
+  <div class="glass">
     <h1>PersonaHealth</h1>
-    <p>
-      A unified, individual-first health & lifestyle companion
-    </p>
+
+    <div class="subtitle">
+      A calm, personal space to understand your health,<br />
+      improve your lifestyle, and live better — every day.
+    </div>
 
     <button onclick="startApp()">Get Started</button>
 
     <div class="tag">
-      Built for inclusivity • Realistic lifestyle • Health beyond numbers
+      Inclusive • Personal • Lifestyle-first
     </div>
   </div>
 

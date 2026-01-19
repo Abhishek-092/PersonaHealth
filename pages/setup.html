@@ -2,145 +2,244 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PersonaHealth | Setup</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
 
   <style>
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
     }
 
     body {
-      margin: 0;
-      background: #0f172a;
-      color: #e5e7eb;
       min-height: 100vh;
+      background: radial-gradient(circle at top, #2A2926, #1C1B19);
+      font-family: 'Inter', sans-serif;
+      color: #EAE7E2;
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
+      padding: 20px;
     }
 
-    .card {
-      background: #020617;
+    .glass {
       width: 100%;
       max-width: 520px;
-      padding: 32px;
-      border-radius: 20px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      background: rgba(36, 35, 33, 0.6);
+      backdrop-filter: blur(18px);
+      border-radius: 26px;
+      padding: 40px 34px;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow:
+        0 20px 40px rgba(0,0,0,0.45),
+        inset 0 1px 0 rgba(255,255,255,0.05);
     }
 
     h1 {
-      margin-bottom: 8px;
-      font-size: 1.8rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.1rem;
+      margin-bottom: 10px;
     }
 
-    p {
-      margin-bottom: 24px;
-      color: #94a3b8;
+    .subtitle {
       font-size: 0.95rem;
+      color: #B7B3AD;
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+
+    .field {
+      margin-bottom: 18px;
     }
 
     label {
       display: block;
-      margin-top: 16px;
-      font-size: 0.85rem;
-      color: #cbd5f5;
+      font-size: 0.75rem;
+      letter-spacing: 0.4px;
+      color: #9E9B96;
+      margin-bottom: 6px;
     }
 
-    select, input {
+    input {
       width: 100%;
-      margin-top: 6px;
-      padding: 12px;
-      border-radius: 12px;
-      border: none;
-      background: #020617;
-      color: #e5e7eb;
-      border: 1px solid #1e293b;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.08);
+      color: #EAE7E2;
+      font-size: 0.9rem;
     }
 
-    select:focus, input:focus {
+    input::placeholder {
+      color: #8E8B86;
+    }
+
+    input:focus {
       outline: none;
-      border-color: #4f46e5;
+      border-color: rgba(163,123,94,0.8);
+      background: rgba(255,255,255,0.12);
     }
 
-    button {
+    /* CUSTOM DROPDOWN */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-input {
+      cursor: pointer;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      right: 0;
+      background: rgba(36,35,33,0.95);
+      backdrop-filter: blur(12px);
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.08);
+      max-height: 180px;
+      overflow-y: auto;
+      display: none;
+      z-index: 20;
+    }
+
+    .dropdown-menu div {
+      padding: 10px 14px;
+      font-size: 0.85rem;
+      color: #EAE7E2;
+      cursor: pointer;
+    }
+
+    .dropdown-menu div:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    .button {
       margin-top: 28px;
       width: 100%;
       padding: 14px;
-      border-radius: 14px;
+      border-radius: 32px;
       border: none;
-      background: #4f46e5;
-      color: white;
-      font-size: 1rem;
-      font-weight: 600;
       cursor: pointer;
-      transition: 0.3s;
-    }
-
-    button:hover {
-      background: #6366f1;
-      transform: translateY(-1px);
+      background: linear-gradient(135deg, #A37B5E, #8F6A4F);
+      color: #1C1B19;
+      font-size: 0.95rem;
+      font-weight: 500;
+      box-shadow:
+        0 10px 20px rgba(0,0,0,0.4),
+        inset 0 1px 0 rgba(255,255,255,0.25);
     }
 
     .note {
       margin-top: 16px;
-      font-size: 0.75rem;
-      color: #64748b;
+      font-size: 0.7rem;
       text-align: center;
+      color: #8E8B86;
     }
   </style>
 </head>
 <body>
 
-  <div class="card">
-    <h1>Personalise Your Experience</h1>
-    <p>PersonaHealth adapts to you — not the other way around.</p>
+<div class="glass">
+  <h1>Let’s personalise this</h1>
+  <div class="subtitle">
+    This helps PersonaHealth adapt to your lifestyle and health needs.
+  </div>
 
-    <label>Age</label>
-    <input type="number" placeholder="Enter your age" />
+  <div class="field">
+    <label>AGE</label>
+    <input type="number" placeholder="Your age" />
+  </div>
 
-    <label>Gender</label>
-    <select>
-      <option>Male</option>
-      <option>Female</option>
-      <option>Other</option>
-      <option>Prefer not to say</option>
-    </select>
+  <div class="field">
+    <label>GENDER</label>
+    <input type="text" placeholder="Male / Female / Other" />
+  </div>
 
-    <label>Physical Condition / Disability</label>
-    <select>
-      <option>None</option>
-      <option>Lower limb amputation</option>
-      <option>Mobility impairment</option>
-      <option>Other</option>
-    </select>
+  <!-- DISABILITY DROPDOWN -->
+  <div class="field dropdown">
+    <label>PHYSICAL DISABILITY / LIMITATION</label>
+    <input class="dropdown-input" readonly placeholder="Select condition" onclick="toggleDropdown('disabilityMenu')" />
 
-    <label>Chronic Conditions</label>
-    <select>
-      <option>None</option>
-      <option>Asthma</option>
-      <option>Diabetes</option>
-      <option>Other</option>
-    </select>
-
-    <label>Allergies (optional)</label>
-    <input type="text" placeholder="e.g. lactose, peanuts" />
-
-    <button onclick="goDashboard()">Continue</button>
-
-    <div class="note">
-      Your data is used only to personalise recommendations.
+    <div class="dropdown-menu" id="disabilityMenu">
+      <div onclick="selectOption(this)">None</div>
+      <div onclick="selectOption(this)">Lower limb amputation</div>
+      <div onclick="selectOption(this)">Upper limb amputation</div>
+      <div onclick="selectOption(this)">Mobility impairment</div>
+      <div onclick="selectOption(this)">Wheelchair user</div>
+      <div onclick="selectOption(this)">Partial paralysis</div>
+      <div onclick="selectOption(this)">Spinal cord injury</div>
+      <div onclick="selectOption(this)">Visual impairment</div>
+      <div onclick="selectOption(this)">Hearing impairment</div>
+      <div onclick="selectOption(this)">Other</div>
     </div>
   </div>
 
-  <script>
-    function goDashboard() {
-      window.location.href = "dashboard.html";
+  <!-- CHRONIC CONDITION DROPDOWN -->
+  <div class="field dropdown">
+    <label>CHRONIC CONDITIONS / DISEASES</label>
+    <input class="dropdown-input" readonly placeholder="Select condition" onclick="toggleDropdown('chronicMenu')" />
+
+    <div class="dropdown-menu" id="chronicMenu">
+      <div onclick="selectOption(this)">None</div>
+      <div onclick="selectOption(this)">Asthma</div>
+      <div onclick="selectOption(this)">Diabetes Type 1</div>
+      <div onclick="selectOption(this)">Diabetes Type 2</div>
+      <div onclick="selectOption(this)">Hypertension</div>
+      <div onclick="selectOption(this)">Heart disease</div>
+      <div onclick="selectOption(this)">Thyroid disorder</div>
+      <div onclick="selectOption(this)">PCOS / PCOD</div>
+      <div onclick="selectOption(this)">Arthritis</div>
+      <div onclick="selectOption(this)">Depression</div>
+      <div onclick="selectOption(this)">Anxiety disorder</div>
+      <div onclick="selectOption(this)">Other</div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>ALLERGIES (OPTIONAL)</label>
+    <input type="text" placeholder="e.g. lactose, peanuts" />
+  </div>
+
+  <button class="button" onclick="goDashboard()">Continue</button>
+
+  <div class="note">
+    Your information stays on your device during this demo.
+  </div>
+</div>
+
+<script>
+  function toggleDropdown(id) {
+    document.querySelectorAll('.dropdown-menu').forEach(menu => {
+      if (menu.id !== id) menu.style.display = 'none';
+    });
+
+    const menu = document.getElementById(id);
+    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+  }
+
+  function selectOption(el) {
+    const input = el.closest('.dropdown').querySelector('.dropdown-input');
+    input.value = el.innerText;
+    el.parentElement.style.display = 'none';
+  }
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.dropdown')) {
+      document.querySelectorAll('.dropdown-menu')
+        .forEach(menu => menu.style.display = 'none');
     }
-  </script>
+  });
+
+  function goDashboard() {
+    window.location.href = "dashboard.html";
+  }
+</script>
 
 </body>
 </html>
