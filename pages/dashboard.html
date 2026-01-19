@@ -5,47 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PersonaHealth | Dashboard</title>
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       min-height: 100vh;
       background: radial-gradient(circle at top, #2A2926, #1C1B19);
       font-family: 'Inter', sans-serif;
       color: #EAE7E2;
-      padding: 24px;
+      padding: 24px 24px 110px;
     }
 
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      color: #B7B3AD;
+      font-size: 0.9rem;
       margin-bottom: 28px;
     }
 
-    .title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-    }
-
-    .date {
-      font-size: 0.85rem;
-      color: #B7B3AD;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 18px;
-    }
-
+    /* Glass Card */
     .card {
       background: rgba(36, 35, 33, 0.6);
       backdrop-filter: blur(16px);
@@ -58,7 +43,7 @@
     }
 
     .card h3 {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       letter-spacing: 0.4px;
       color: #B7B3AD;
       margin-bottom: 10px;
@@ -70,97 +55,168 @@
       margin-bottom: 6px;
     }
 
-    .sub {
+    .desc {
       font-size: 0.8rem;
       color: #9E9B96;
+      line-height: 1.5;
     }
 
-    .highlight {
-      color: #A37B5E;
+    .highlight { color: #A37B5E; }
+
+    .section { margin-bottom: 26px; }
+
+    /* Hero */
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
     }
 
-    .wide {
-      grid-column: span 2;
+    .hero .value {
+      font-size: 2.4rem;
+    }
+
+    /* Grids */
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    @media (max-width: 900px) {
+      .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
     }
 
     @media (max-width: 600px) {
-      .wide {
-        grid-column: span 1;
+      .grid-2 {
+        grid-template-columns: 1fr;
       }
+    }
+
+    /* NAVBAR */
+    .navbar {
+      position: fixed;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 18px;
+      padding: 14px 22px;
+
+      background: rgba(36, 35, 33, 0.65);
+      backdrop-filter: blur(16px);
+      border-radius: 40px;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow:
+        0 14px 30px rgba(0,0,0,0.45),
+        inset 0 1px 0 rgba(255,255,255,0.05);
+    }
+
+    .nav-item {
+      font-size: 0.85rem;
+      color: #B7B3AD;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: color 0.2s ease;
+    }
+
+    .nav-item:hover {
+      color: #EAE7E2;
+    }
+
+    .nav-item.active {
+      color: #A37B5E;
+      font-weight: 500;
     }
   </style>
 </head>
 <body>
 
-  <div class="header">
-    <div class="title">Your Day at a Glance</div>
-    <div class="date" id="today"></div>
+  <!-- HEADER -->
+  <h1>Your Health, One Place</h1>
+  <div class="subtitle">
+    Nutrition • Sleep • Activity • Mental Wellbeing • Reminders • Insights
   </div>
 
-  <div class="grid">
-
-    <!-- Lifestyle Score -->
-    <div class="card">
-      <h3>LIFESTYLE SCORE</h3>
+  <!-- HERO SUMMARY -->
+  <div class="section card hero">
+    <div>
+      <h3>OVERALL HEALTH</h3>
       <div class="value highlight">72 / 100</div>
-      <div class="sub">Improving steadily</div>
+      <div class="desc">
+        A combined view of your lifestyle, habits, and wellbeing.
+      </div>
     </div>
-
-    <!-- Sleep -->
-    <div class="card">
-      <h3>SLEEP</h3>
-      <div class="value">6h 20m</div>
-      <div class="sub">Slightly below optimal</div>
+    <div class="desc">
+      Improving steadily<br/>
+      Consistency detected
     </div>
+  </div>
 
-    <!-- Activity -->
-    <div class="card">
-      <h3>ACTIVITY</h3>
-      <div class="value">5,432</div>
-      <div class="sub">Steps today</div>
-    </div>
-
-    <!-- Stress -->
-    <div class="card">
-      <h3>STRESS</h3>
-      <div class="value">Moderate</div>
-      <div class="sub">Based on recent patterns</div>
-    </div>
-
-    <!-- Nutrition -->
+  <!-- CORE SYSTEMS -->
+  <div class="section grid-4">
     <div class="card">
       <h3>NUTRITION</h3>
       <div class="value">Balanced</div>
-      <div class="sub">1 supplement flagged</div>
+      <div class="desc">Calories tracked • Supplements checked</div>
     </div>
 
-    <!-- Body -->
     <div class="card">
-      <h3>BODY STATUS</h3>
-      <div class="value">Stable</div>
-      <div class="sub">Weekly progress maintained</div>
+      <h3>SLEEP</h3>
+      <div class="value">6h 20m</div>
+      <div class="desc">Quality slightly below optimal</div>
     </div>
 
-    <!-- Insights -->
-    <div class="card wide">
-      <h3>INSIGHTS</h3>
-      <div class="value">You’re on track</div>
-      <div class="sub">
-        If current habits continue, physical and mental wellbeing
-        are expected to improve over the next few weeks.
-      </div>
+    <div class="card">
+      <h3>ACTIVITY</h3>
+      <div class="value">5,432</div>
+      <div class="desc">Steps • Adaptive routines</div>
     </div>
 
+    <div class="card">
+      <h3>MENTAL WELLBEING</h3>
+      <div class="value">Moderate</div>
+      <div class="desc">Stress & meditation tracked</div>
+    </div>
+  </div>
+
+  <!-- DAILY SUPPORT -->
+  <div class="section grid-2">
+    <div class="card">
+      <h3>REMINDERS</h3>
+      <div class="value">Active</div>
+      <div class="desc">Water • Medicines • Meals</div>
+    </div>
+
+    <div class="card">
+      <h3>DAILY INSIGHTS</h3>
+      <div class="value">On Track</div>
+      <div class="desc">Personalized improvements ready</div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="nav-item active">Dashboard</div>
+    <div class="nav-item" onclick="go('reminders.html')">Reminders</div>
+    <div class="nav-item" onclick="go('nutrition.html')">Nutrition</div>
+    <div class="nav-item" onclick="go('sleep.html')">Sleep</div>
+    <div class="nav-item" onclick="go('activity.html')">Activity</div>
+    <div class="nav-item" onclick="go('insights.html')">Insights</div>
   </div>
 
   <script>
-    const today = new Date();
-    document.getElementById("today").innerText =
-      today.toLocaleDateString(undefined, {
-        weekday: "long",
-        month: "long",
-        day: "numeric"
-      });
+    function go(page) {
+      window.location.href = page;
+    }
   </script>
 
 </body>
