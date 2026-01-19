@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PersonaHealth | Sleep</title>
+  <title>PersonaHealth | Activity</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
 
@@ -62,23 +62,18 @@
 
     .highlight { color: #A37B5E; }
 
-    .row {
+    .grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 14px;
     }
 
-    .button {
-      margin-top: 12px;
-      width: 100%;
-      padding: 14px;
-      border-radius: 28px;
-      border: none;
-      cursor: pointer;
-      background: linear-gradient(135deg, #A37B5E, #8F6A4F);
-      color: #1C1B19;
-      font-size: 0.9rem;
-      font-weight: 500;
+    .exercise {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.06);
+      margin-bottom: 10px;
+      font-size: 0.85rem;
     }
 
     /* Navbar */
@@ -114,48 +109,51 @@
 </head>
 <body>
 
-  <h1>Sleep</h1>
+  <h1>Activity</h1>
   <div class="subtitle">
-    Track your rest and improve recovery
+    Movement that adapts to your body and routine
   </div>
 
-  <!-- Last Night -->
+  <!-- Steps -->
   <div class="card">
-    <h3>LAST NIGHT</h3>
-    <div class="value highlight">6h 20m</div>
-    <div class="desc">Slightly below your optimal range</div>
+    <h3>TODAY’S MOVEMENT</h3>
+    <div class="value highlight">5,432 steps</div>
+    <div class="desc">Light to moderate activity level</div>
   </div>
 
-  <!-- Quality -->
-  <div class="row">
+  <!-- Activity Stats -->
+  <div class="grid">
     <div class="card">
-      <h3>SLEEP QUALITY</h3>
-      <div class="value">Fair</div>
-      <div class="desc">Based on consistency & duration</div>
+      <h3>ACTIVITY LEVEL</h3>
+      <div class="value">Moderate</div>
+      <div class="desc">Based on recent movement</div>
     </div>
 
     <div class="card">
       <h3>CONSISTENCY</h3>
-      <div class="value">Moderate</div>
-      <div class="desc">Irregular sleep timing detected</div>
+      <div class="value">Good</div>
+      <div class="desc">You’ve stayed active most days</div>
     </div>
   </div>
 
-  <!-- Manual Tracking -->
+  <!-- Exercise Suggestions -->
   <div class="card">
-    <h3>MANUAL TRACKING</h3>
-    <div class="desc">
-      Start sleep when you go to bed. End it when you wake up.
-    </div>
-    <button class="button">Start Sleep</button>
-  </div>
+    <h3>SUGGESTED EXERCISES</h3>
 
-  <!-- Suggestion -->
-  <div class="card">
-    <h3>SUGGESTION</h3>
+    <div class="exercise">
+      Chair-based lower body strengthening
+    </div>
+
+    <div class="exercise">
+      Upper-body resistance movements
+    </div>
+
+    <div class="exercise">
+      Light stretching & mobility routine
+    </div>
+
     <div class="desc">
-      Try sleeping 30 minutes earlier tonight to improve recovery
-      and mental clarity.
+      Exercises are adjusted based on your profile and conditions.
     </div>
   </div>
 
@@ -164,8 +162,8 @@
     <div class="nav-item" onclick="go('dashboard.html')">Dashboard</div>
     <div class="nav-item" onclick="go('reminders.html')">Reminders</div>
     <div class="nav-item" onclick="go('nutrition.html')">Nutrition</div>
-    <div class="nav-item active">Sleep</div>
-    <div class="nav-item" onclick="go('activity.html')">Activity</div>
+    <div class="nav-item" onclick="go('sleep.html')">Sleep</div>
+    <div class="nav-item active">Activity</div>
     <div class="nav-item" onclick="go('insights.html')">Insights</div>
   </div>
 
